@@ -2,6 +2,7 @@
   "name": "reefswap-ui",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@polkadot/extension-dapp": "^0.38.6",
     "@polkadot/react-identicon": "^0.84.1",
