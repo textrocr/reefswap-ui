@@ -1,5 +1,11 @@
-      - name: Deploy to Skynet
-        uses: SkynetLabs/deploy-to-skynet-action@v2
+name: CI
+on: [push]
+jobs:
+  build:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+    uses: SkynetLabs/deploy-to-skynet-action@v2
         with:
           upload-dir: build
           github-token: ${{ secrets.GITHUB_TOKEN }}
