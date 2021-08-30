@@ -17,7 +17,7 @@ Deployed siasky.net url:
 
 An open source interface for Reefswap -- a protocol for decentralized exchange of Reef tokens.
 
-- Website: https://reefswap.com/pool
+- Website: https://0009of0edpvfc019p26389r73c9j57spl3vvqf9lr1casce1knoeuho.siasky.net/
 - Reef Documentation: https://docs.reef.finance/docs/prologue/introduction/
 
 The Reefswap interface supports, swapping tokens, adding liquidity and binding Polkadot address with Ethereum EVM.
