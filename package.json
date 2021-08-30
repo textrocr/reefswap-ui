@@ -4,6 +4,7 @@
   "private": true,
   "homepage": ".",
   "dependencies": {
+    "@polkadot/api": "^0.5.6.1",
     "@polkadot/extension-dapp": "^0.38.6",
     "@polkadot/react-identicon": "^0.84.1",
     "@reef-defi/evm-provider": "^0.1.9",
