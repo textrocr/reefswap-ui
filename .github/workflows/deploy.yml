@@ -1,7 +1,7 @@
-name: My CI Pipeline
+
+name: Deploy to Skynet
 
 on:
-  pull_request:
   push:
     branches: [main]
 
@@ -18,13 +18,12 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Build webapp
+      - name: Build
         run: yarn build
 
-      - name: Deploy to Skynet
+      - name: "Deploy to Skynet"
         uses: SkynetLabs/deploy-to-skynet-action@v2
-
         with:
-          upload-dir: public
+          upload-dir: frontend/build
           github-token: ${{ secrets.GITHUB_TOKEN }}
           registry-seed: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && secrets.REGISTRY_SEED || '' }}
