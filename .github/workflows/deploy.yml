@@ -1,13 +1,30 @@
-name: CI
-on: [push]
+name: My CI Pipeline
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
 jobs:
   build:
-    name: Test
     runs-on: ubuntu-latest
+
     steps:
-    uses: SkynetLabs/deploy-to-skynet-action@v2
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
-          upload-dir: build
+          node-version: 16.x
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build webapp
+        run: yarn build
+
+      - name: Deploy to Skynet
+        uses: SkynetLabs/deploy-to-skynet-action@v2
+
+        with:
+          upload-dir: public
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          registry-seed: ${{ secrets.REGISTRY_SEED || '' }}
-          registry-datakey: ${{ secrets.REGISTRY_DATAKEY || '' }}
+          registry-seed: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && secrets.REGISTRY_SEED || '' }}
